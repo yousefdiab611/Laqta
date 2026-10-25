@@ -3,7 +3,7 @@
 Status: adopted
 
 The popup-only blue theme left the editor and utility pages visually unrelated.
-Use neutral charcoal, white text, and gray surfaces throughout
+Use neutral charcoal, ivory text, and vivid orange accents throughout
 the extension. A shared assets/theme/laqta-theme.css defines semantic tokens
 for both dark and light modes and is loaded after each page's existing styles.
 

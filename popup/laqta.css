@@ -230,7 +230,7 @@ h1 {
     font-weight: 750;
 }
 .hero-action .action-desc {
-    color: #34343c;
+    color: var(--ink);
     font-size: 11px;
 }
 .capture-grid,
@@ -846,4 +846,16 @@ footer {
             border-color 100ms,
             color 100ms;
     }
+}
+
+.brand-mark {
+    background: #fff7e9;
+    color: #151518;
+}
+.brand-mark img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    border-radius: 15px;
+    transform: rotate(8deg);
 }

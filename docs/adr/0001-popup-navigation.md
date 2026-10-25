@@ -2,7 +2,7 @@
 
 Status: adopted
 
-The requested redesign uses a dark dotted background and a monochrome accent, inspired
+The requested redesign uses a dark dotted background and a vivid orange accent, inspired
 by the supplied Nazil reference. The popup needs to expose the existing capture,
 recording, and creation actions within Chrome's popup height limit.
 
