@@ -389,9 +389,12 @@ footer {
     height: 18px;
 }
 .footer-signature {
-    color: #98a890;
-    font-size: 7px;
-    letter-spacing: 1.2px;
+    color: #a4b1a7;
+    font-size: 8px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 210px;
 }
 .record-visual {
     height: 136px;

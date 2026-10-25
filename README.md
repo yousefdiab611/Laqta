@@ -198,6 +198,14 @@ and the [popup layout decision](docs/adr/0001-popup-navigation.md) for UI struct
 - **Composition too large:** reduce output width or remove tutorial steps.
 - **MP4 conversion is unavailable:** this feature depends on the browser's MediaRecorder support; the tool reports when it is unsupported.
 
+## Copyright
+
+**© 2026 Yousef Diab | Dokkan Agency**
+
+Laqta customization, branding, and added functionality by **Yousef Diab | Dokkan Agency**.
+This attribution also appears in the extension popup, Creative Studio, and editor.
+Upstream code and bundled dependencies retain their respective rights and notices.
+
 ## Credits and licensing
 
 Laqta is a personalized adaptation of **FramedShot**, with added Creative Studio functionality and branding changes. The existing editor is distributed here in compiled form.
@@ -232,3 +240,7 @@ No project-wide license is included in this repository. Bundled dependency licen
 الاسم الافتراضي للعلامة المائية هو **Yousef Diab | Dokkan Agency**، وتقدر تغيّره أو تعطّله. المقارنة بتتصدّر كصورة ثابتة. صور الاستوديو مش بتتحفظ تلقائيًا بعد إغلاق التاب.
 
 معالجة الصور وOCR محلية، لكن النسخة الحالية لسه فيها كود وروابط لخدمات FramedShot؛ راجع قسم الخصوصية فوق للتفاصيل.
+
+---
+
+**© 2026 Yousef Diab | Dokkan Agency — حقوق تخصيص لقطة والإضافات الجديدة محفوظة.**

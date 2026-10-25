@@ -304,3 +304,10 @@ textarea {
         transition: background 0.15s;
     }
 }
+
+.copyright {
+    padding: 12px 20px 24px;
+    color: #65655e;
+    text-align: center;
+    font-size: 12px;
+}

@@ -22,12 +22,16 @@
             link.disabled = false;
         }
     });
+    const credit = document.createElement('p');
+    credit.textContent = '© 2026 Yousef Diab | Dokkan Agency';
+    credit.dir = 'ltr';
+    credit.style.cssText = 'margin:4px 0 0;text-align:center;font:10px/1.5 system-ui;color:var(--ds-on-surface-variant,#9ca3af)';
     function attachToExportTools() {
         if (link.isConnected) return;
         const download = Array.from(document.querySelectorAll('aside button')).find(
             (control) => control.textContent.trim() === 'Download',
         );
-        if (download) download.parentElement.parentElement.append(link);
+        if (download) download.parentElement.parentElement.append(link, credit);
     }
     // The editor is a compiled React app; its export controls mount after this script.
     new MutationObserver(attachToExportTools).observe(document.getElementById('root'), {
