@@ -1,230 +1,423 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="dark" />
+        <title>لقطة — Laqta</title>
+        <link rel="stylesheet" href="laqta.css" />
+    </head>
+    <body>
+        <div class="popup">
+            <header class="header">
+                <div class="identity">
+                    <span class="brand-mark" aria-hidden="true"
+                        ><svg
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                            <rect x="7" y="7" width="10" height="10" rx="1" /></svg
+                    ></span>
+                    <div>
+                        <h1>لقطة<span class="brand-dot">.</span> <span class="latin" lang="en">Laqta</span></h1>
+                        <p>لقطتك، بلمستك.</p>
+                    </div>
+                </div>
+                <button
+                    id="btn-shortcuts"
+                    type="button"
+                    class="shortcut-button"
+                    title="تخصيص اختصارات لوحة المفاتيح"
+                    aria-label="اختصارات لوحة المفاتيح"
+                >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                        <rect x="2" y="5" width="20" height="14" rx="4" />
+                        <path d="M6 9h1m4 0h1m4 0h1M6 12h1m4 0h1m4 0h1M7 15h10" />
+                    </svg>
+                </button>
+            </header>
+            <div class="section-tabs" role="tablist" aria-label="نوع العمل">
+                <button
+                    type="button"
+                    role="tab"
+                    id="tab-capture"
+                    aria-controls="panel-capture"
+                    aria-selected="true"
+                    tabindex="0"
+                >
+                    تصوير
+                </button>
+                <button
+                    type="button"
+                    role="tab"
+                    id="tab-video"
+                    aria-controls="panel-video"
+                    aria-selected="false"
+                    tabindex="-1"
+                >
+                    تسجيل
+                </button>
+                <button
+                    type="button"
+                    role="tab"
+                    id="tab-create"
+                    aria-controls="panel-create"
+                    aria-selected="false"
+                    tabindex="-1"
+                >
+                    إنشاء
+                </button>
+            </div>
+            <main class="main-content">
+                <div class="actions">
+                    <section id="panel-capture" role="tabpanel" aria-labelledby="tab-capture" class="work-panel">
+                        <div class="section-heading">
+                            <h2>كل لقطة، تستاهل.</h2>
+                            <span>ابدأ من هنا</span>
+                        </div>
+                        <button type="button" class="action-btn hero-action" id="btn-tab">
+                            <span class="action-icon"
+                                ><svg
+                                    aria-hidden="true"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                                    <path d="M8 21h8M12 17v4" /></svg></span
+                            ><span class="action-text"
+                                ><span class="action-title">التقط التبويب</span
+                                ><span class="action-desc">صوّر اللي قدامك، وظبّطه بطريقتك</span></span
+                            >
+                        </button>
+                        <div class="capture-grid">
+                            <button type="button" class="action-btn" id="btn-area">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                                        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                                        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                                        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                                        <rect x="7" y="7" width="10" height="10" rx="1" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">جزء محدد</span
+                                    ><span class="action-desc">حدّد المساحة بنفسك</span></span
+                                ></button
+                            ><button type="button" class="action-btn" id="btn-fullpage">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <rect x="5" y="3" width="14" height="18" rx="2" />
+                                        <path d="M9 9l3-3 3 3" />
+                                        <path d="M9 15l3 3 3-3" />
+                                        <path d="M12 6v12" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">الصفحة كاملة</span
+                                    ><span class="action-desc">من أول سطر لآخر سطر</span></span
+                                ></button
+                            ><button type="button" class="action-btn" id="btn-private">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لقطة — Laqta</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="recording.css" />
-    <link rel="stylesheet" href="session.css" />
-</head>
+                                    >
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                                        <path d="m9 12 2 2 4-4" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">لقطة خاصة</span
+                                    ><span class="action-desc">طمس تلقائي للبيانات</span></span
+                                ></button
+                            ><button type="button" class="action-btn" id="btn-screen">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
 
-<body>
-    <div class="popup">
-        <div class="header">
-            <img src="../assets/icons/framedshot-logo.png" class="logo" alt="لقطة — Laqta" />
-            <div class="header-text">
-                <span class="header-title">لقطة — Laqta</span>
-                <span class="header-sub">Use <button class="shortcuts-link" id="btn-shortcuts">shortcuts</button> for a
-                    faster experience</span>
-            </div>
-        </div>
-        <div class="quick-mode-row" id="quick-mode-row">
-            <div class="quick-mode-text">
-                <div class="quick-mode-title-row">
-                    <span class="quick-mode-label">Quick copy</span>
-                </div>
-                <span class="quick-mode-desc">Skip editor — copy with your saved settings</span>
-            </div>
-            <label class="toggle" for="quick-mode-toggle" aria-label="Enable quick copy mode">
-                <input type="checkbox" id="quick-mode-toggle" />
-                <span class="toggle-track"></span>
-            </label>
-        </div>
-        <div class="actions">
-            <button class="action-btn action-btn-primary" id="btn-tab">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" />
-                        <path d="M8 21h8M12 17v4" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <span class="action-title">Screenshot Tab</span>
-                    <span class="action-desc">Capture the full visible tab</span>
-                </div>
-            </button>
-            <button class="action-btn" id="btn-screen" type="button">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" aria-hidden="true">
-                        <rect x="2" y="3" width="20" height="14" rx="2" />
-                        <path d="M8 21h8M12 17v4" />
-                        <path d="M8 7H6v2M16 7h2v2M8 13H6v-2M16 13h2v-2" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <div class="action-title-row">
-                        <span class="action-title">Screenshot Chrome</span>
-                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
-                    </div>
-                    <span class="action-desc">Capture the full Chrome window</span>
-                </div>
-            </button>
-            <button class="action-btn" id="btn-copy-screen" type="button">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="8" y="8" width="12" height="12" rx="2" />
-                        <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <span class="action-title">Copy Chrome Window</span>
-                    <span class="action-desc">Copy the full browser window</span>
-                </div>
-            </button>
-            <button class="action-btn" id="btn-area">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-                        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-                        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-                        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-                        <rect x="7" y="7" width="10" height="10" rx="1" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <span class="action-title">Select Area</span>
-                    <span class="action-desc">Drag to capture a region</span>
-                </div>
-            </button>
-            <button class="action-btn" id="btn-private" type="button">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                        <path d="m9 12 2 2 4-4" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <div class="action-title-row">
-                        <span class="action-title">Private Screenshot</span>
-                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
-                    </div>
-                    <span class="action-desc">Auto-blur emails, phones and secrets</span>
-                </div>
-            </button>
-            <button class="action-btn" id="btn-fullpage">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="5" y="3" width="14" height="18" rx="2" />
-                        <path d="M9 9l3-3 3 3" />
-                        <path d="M9 15l3 3 3-3" />
-                        <path d="M12 6v12" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <div class="action-title-row">
-                        <span class="action-title">Full Page</span>
-                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
-                    </div>
-                    <span class="action-desc">Scroll and stitch the entire page</span>
-                </div>
-            </button>
-            <button class="action-btn recording-btn" id="btn-record" type="button">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <circle cx="12" cy="12" r="6" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <div class="action-title-row">
-                        <span class="action-title">Record Tab</span>
-                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
-                    </div>
-                    <span class="action-desc" id="recording-desc">Capture video from this tab</span>
-                </div>
-                <span class="recording-timer" id="recording-timer" hidden>00:00</span>
-            </button>
-            <button class="action-btn" id="btn-capture-steps">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="7" height="7" rx="1" />
-                        <rect x="14" y="3" width="7" height="7" rx="1" />
-                        <rect x="3" y="14" width="7" height="7" rx="1" />
-                        <path d="M14 17.5h7M17.5 14v7" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <div class="action-title-row">
-                        <span class="action-title">Capture steps</span>
-                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
-                    </div>
-                    <span class="action-desc">Drag a box around each step, then build a tutorial collage</span>
-                </div>
-            </button>
-            <button class="action-btn" id="btn-collage">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="3" y="3" width="8" height="8" rx="1" />
-                        <rect x="13" y="3" width="8" height="8" rx="1" />
-                        <rect x="3" y="13" width="8" height="8" rx="1" />
-                        <rect x="13" y="13" width="8" height="8" rx="1" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <span class="action-title">Create Collage</span>
-                    <span class="action-desc">Combine images you already have</span>
-                </div>
-            </button>
-            <button class="action-btn" id="btn-upload">
-                <div class="action-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="17 8 12 3 7 8" />
-                        <line x1="12" y1="3" x2="12" y2="15" />
-                    </svg>
-                </div>
-                <div class="action-text">
-                    <span class="action-title">Upload Image</span>
-                    <span class="action-desc">Open a local PNG, JPG or WebP</span>
-                </div>
-            </button>
-        </div>
-        <div class="capture-session" id="capture-session" style="display: none;">
-            <div class="session-header">
-                <div class="session-title">
-                    <span class="session-dot" aria-hidden="true"></span>
-                    <span class="session-label">Capture session</span>
-                </div>
-                <span class="session-count" id="session-count">0 frames</span>
-            </div>
-            <div class="session-thumbs" id="session-thumbs" aria-live="polite"></div>
-            <button class="session-capture-btn" id="session-capture-btn" type="button">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <path d="M8 21h8M12 17v4" />
-                </svg>
-                <span id="session-capture-label">Capture this tab</span>
-            </button>
-            <div class="session-actions">
-                <button class="session-cancel-btn" id="session-cancel-btn" type="button">Discard</button>
-                <button class="session-finish-btn" id="session-finish-btn" type="button" disabled>Finish &amp; build collage</button>
-            </div>
-            <p class="session-hint" id="session-hint">Navigate to your next step, then reopen the extension to capture it.</p>
-        </div>
-        <div class="error-msg" id="error-msg"></div>
-        <div class="studio-actions">
-            <button id="btn-studio" type="button">Creative Studio</button>
-            <button id="btn-studio-capture" type="button">Capture to Studio</button>
-        </div>
-        <div class="utility-actions">
-            <button id="btn-history" type="button">History</button>
-            <button id="btn-brand" type="button">Brand Kit</button>
-            <button id="btn-export-tools" type="button">Export Tools</button>
-        </div>
-    </div>
-    <input type="file" id="file-input" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" />
-    <input type="file" id="collage-input" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" multiple />
-    <script src="quickCopyCanvas.js"></script>
-    <script src="popup.js"></script>
-    <script src="recording.js"></script>
-    <script src="session.js"></script>
-</body>
+                                    >
+                                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                                        <path d="M8 21h8M12 17v4" />
+                                        <path d="M8 7H6v2M16 7h2v2M8 13H6v-2M16 13h2v-2" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">نافذة المتصفح</span
+                                    ><span class="action-desc">بكل تفاصيلها</span></span
+                                >
+                            </button>
+                        </div>
+                        <div class="quick-mode-row" id="quick-mode-row">
+                            <div class="quick-mode-text">
+                                <span class="quick-mode-label">نسخ سريع</span
+                                ><span class="quick-mode-desc">بإعداداتك المحفوظة، من غير المحرر</span>
+                            </div>
+                            <label class="toggle" for="quick-mode-toggle"
+                                ><input
+                                    id="quick-mode-toggle"
+                                    type="checkbox"
+                                    role="switch"
+                                    aria-label="تفعيل النسخ السريع" /><span class="toggle-track"></span
+                            ></label>
+                        </div>
+                    </section>
+                    <section id="panel-video" role="tabpanel" aria-labelledby="tab-video" class="work-panel" hidden>
+                        <div class="section-heading">
+                            <h2>ورّيهم إزاي.</h2>
+                            <span>سجّل الفكرة</span>
+                        </div>
+                        <div class="record-visual" aria-hidden="true">
+                            <div class="record-window">
+                                <span class="window-dots">•••</span><span class="record-symbol"></span>
+                                <div class="wave-bars">
+                                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                                </div>
+                            </div>
+                            <span class="record-label">REC <span></span></span>
+                        </div>
+                        <button id="btn-record" type="button" class="action-btn recording-btn hero-action">
+                            <span class="action-icon"
+                                ><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="12" r="6" /></svg></span
+                            ><span class="action-text"
+                                ><span class="action-title">ابدأ التسجيل</span
+                                ><span class="action-desc" id="recording-desc">سجّل فيديو من التبويب الحالي</span></span
+                            ><span class="recording-timer" id="recording-timer" hidden>00:00</span>
+                        </button>
+                        <p class="panel-note">بعد ما تخلص، افتح لقطة تاني لإيقاف التسجيل وتعديل الفيديو.</p>
+                    </section>
+                    <section id="panel-create" role="tabpanel" aria-labelledby="tab-create" class="work-panel" hidden>
+                        <div class="section-heading">
+                            <h2>حوّل اللقطة لحكاية.</h2>
+                            <span>مساحة للإبداع</span>
+                        </div>
+                        <div class="create-grid">
+                            <button type="button" class="action-btn" id="btn-upload">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="17 8 12 3 7 8" />
+                                        <line x1="12" y1="3" x2="12" y2="15" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">افتح صورة</span
+                                    ><span class="action-desc">ابدأ بصورة من جهازك</span></span
+                                ></button
+                            ><button type="button" class="action-btn" id="btn-collage">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <rect x="3" y="3" width="8" height="8" rx="1" />
+                                        <rect x="13" y="3" width="8" height="8" rx="1" />
+                                        <rect x="3" y="13" width="8" height="8" rx="1" />
+                                        <rect x="13" y="13" width="8" height="8" rx="1" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">جمّع صورك</span
+                                    ><span class="action-desc">أكتر من لقطة في تصميم</span></span
+                                ></button
+                            ><button type="button" class="action-btn" id="btn-capture-steps">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                                        <path d="M14 17.5h7M17.5 14v7" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">شرح بالخطوات</span
+                                    ><span class="action-desc">التقط كل خطوة بالترتيب</span></span
+                                ></button
+                            ><button type="button" class="action-btn" id="btn-copy-screen">
+                                <span class="action-icon"
+                                    ><svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
 
+                                    >
+                                        <rect x="8" y="8" width="12" height="12" rx="2" />
+                                        <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" /></svg></span
+                                ><span class="action-text"
+                                    ><span class="action-title">انسخ النافذة</span
+                                    ><span class="action-desc">جاهزة للصق والمشاركة</span></span
+                                >
+                            </button>
+                        </div>
+                        <button id="btn-studio-capture" class="studio-capture action-btn" type="button">
+                            <span class="action-icon"
+                                ><svg
+                                    aria-hidden="true"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                                    <path d="M8 21h8M12 17v4" /></svg></span
+                            ><span class="action-text"
+                                ><span class="action-title">التقط وافتح الاستوديو</span
+                                ><span class="action-desc">قوالب، مقارنة، واستخراج النصوص</span></span
+                            ><span class="link-arrow" aria-hidden="true">↖</span>
+                        </button>
+                        <button id="btn-export-tools" type="button" class="export-link">
+                            أدوات التصدير <span dir="ltr">PDF · GIF · MP4</span><span aria-hidden="true">↖</span>
+                        </button>
+                    </section>
+                </div>
+                <div class="capture-session" id="capture-session" style="display: none">
+                    <div class="session-header">
+                        <div class="session-title">
+                            <span class="session-dot" aria-hidden="true"></span>
+                            <span class="session-label">خطوات الشرح</span>
+                        </div>
+                        <span class="session-count" id="session-count">٠ لقطات</span>
+                    </div>
+                    <div class="session-thumbs" id="session-thumbs" aria-live="polite"></div>
+                    <button class="session-capture-btn" id="session-capture-btn" type="button">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                        <span id="session-capture-label">التقط الخطوة التالية</span>
+                    </button>
+                    <div class="session-actions">
+                        <button class="session-cancel-btn" id="session-cancel-btn" type="button">إلغاء</button>
+                        <button class="session-finish-btn" id="session-finish-btn" type="button" disabled>
+                            إنهاء وتجميع
+                        </button>
+                    </div>
+                    <p class="session-hint" id="session-hint">انتقل للخطوة التالية، ثم افتح الإضافة لالتقاطها.</p>
+                </div>
+
+                <div class="error-msg" id="error-msg" role="status" aria-live="polite"></div>
+            </main>
+            <footer>
+                <button id="btn-studio" class="studio-link" type="button">
+                    <span class="studio-spark" aria-hidden="true"
+                        ><svg
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect x="3" y="3" width="8" height="8" rx="1" />
+                            <rect x="13" y="3" width="8" height="8" rx="1" />
+                            <rect x="3" y="13" width="8" height="8" rx="1" />
+                            <rect x="13" y="13" width="8" height="8" rx="1" /></svg></span
+                    ><span><strong>الاستوديو الإبداعي</strong><small>مساحة أكبر لأفكارك</small></span
+                    ><span class="link-arrow" aria-hidden="true">↖</span>
+                </button>
+                <nav class="bottom-nav" aria-label="أدوات لقطة">
+                    <button id="btn-history" type="button">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            aria-hidden="true"
+                        >
+                            <path d="M3 11a9 9 0 1 1 2.7 7M3 4v7h7M12 7v5l3 2" /></svg
+                        ><span>السجل</span>
+                    </button>
+                    <span class="footer-signature" dir="ltr">MADE FOR YOUR NEXT SHOT</span>
+                    <button id="btn-brand" type="button">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            aria-hidden="true"
+                        >
+                            <path d="m12 3 8 4v10l-8 4-8-4V7zM4 7l8 4 8-4M12 11v10" /></svg
+                        ><span>هويّتك</span>
+                    </button>
+                </nav>
+            </footer>
+        </div>
+        <input type="file" id="file-input" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" hidden />
+        <input
+            type="file"
+            id="collage-input"
+            accept="image/png,image/jpeg,image/webp,image/gif,image/bmp"
+            multiple
+            hidden
+        />
+        <script src="quickCopyCanvas.js"></script>
+        <script src="navigation.js"></script>
+        <script src="popup.js"></script>
+        <script src="recording.js"></script>
+        <script src="session.js"></script>
+    </body>
 </html>

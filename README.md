@@ -21,6 +21,16 @@ Laqta brings screenshot capture, editing, and presentation into one extension. C
 
 This repository contains an unpacked extension, including its compiled editor and a separate Creative Studio. **No build step or API key is required to load it.**
 
+## A new look for your next shot
+
+An Arabic RTL popup with a dark dotted canvas, lime accents, and dedicated
+**تصوير** (Capture), **تسجيل** (Record), and **إنشاء** (Create) tabs. Common
+actions fit within the 400×600 popup; Studio, history, and branding stay within reach.
+
+| Capture | Record | Create |
+| :---: | :---: | :---: |
+| <img src="docs/screenshots/popup-capture.png" width="240" alt="Arabic capture panel with lime screenshot button" /> | <img src="docs/screenshots/popup-record.png" width="240" alt="Tab recording panel" /> | <img src="docs/screenshots/popup-create.png" width="240" alt="Creation tools and Studio entry point" /> |
+
 ## Features
 
 | Area | What you can do |
@@ -57,11 +67,11 @@ After updating the files, click **Reload** on the extension card. Reopen existin
 
 **For a styled screenshot**
 
-Open a website, click Laqta, and choose **Screenshot Tab**, **Select Area**, or **Full Page**. Edit the capture, then download or copy it.
+Open a website, click Laqta, and choose **التقط التبويب**, **جزء محدد**, or **الصفحة كاملة**. Edit the capture, then download or copy it.
 
 **For templates, tutorials, comparisons, or OCR**
 
-Choose **Capture to Studio** in the popup to send the current visible tab directly to Studio. You can also open **Creative Studio** and upload images, or choose **Open in Creative Studio** from the editor.
+Choose **التقط وافتح الاستوديو** in the **إنشاء** tab to send the current visible tab directly to Studio. You can also open **الاستوديو الإبداعي** from the footer and upload images, or choose **Open in Creative Studio** from the editor.
 
 ### Keyboard shortcuts
 
@@ -102,7 +112,7 @@ OCR runs on the selected **original image**, not the composed template. Its work
 
 ### Brand Kit
 
-Open **Brand Kit**, enable it, set a text watermark or upload a logo, choose the position and opacity, and save.
+Open **هويّتك** in the popup footer to reach Brand Kit, enable it, set a text watermark or upload a logo, choose the position and opacity, and save.
 
 This personalized version initializes the watermark to:
 
@@ -170,7 +180,14 @@ Edit the unpacked files and reload the extension. The editor is provided as a **
 
 The current Studio implementation was checked in Chromium with Playwright for bilingual OCR, offline recognition, templates, numbered captions, arrow controls, comparison layouts, JPEG/WebP downloads, watermark behavior, editor-to-Studio transfer, invalid-size handling, and a 390px layout without horizontal overflow. These are recorded manual verification results, not a committed automated test suite.
 
-See [Studio documentation](studio/README.md) for implementation notes and limits.
+The redesigned popup was checked for RTL keyboard tab navigation, Quick Copy
+on/off, session restore/cancel, and all three panels fitting at 400×600. An
+injected recording-status fixture verified selecting the recording tab and
+showing the stop button/timer when a recording is restored; this did not start
+a real recording. Gallery screenshots use a normal-site URL fixture.
+
+See [Studio documentation](studio/README.md) for implementation notes and limits,
+and the [popup layout decision](docs/adr/0001-popup-navigation.md) for UI structure.
 
 ## Troubleshooting
 
@@ -204,10 +221,12 @@ No project-wide license is included in this repository. Bundled dependency licen
 
 ### الاستخدام
 
-- **Screenshot Tab / Select Area / Full Page:** صوّر التاب أو جزء منه أو الصفحة كاملة.
-- **Capture to Studio:** انقل صورة التاب مباشرة للاستوديو.
-- **Creative Studio:** قوالب جاهزة، شرح مرقّم، أسهم، مقارنة قبل وبعد، واستخراج نص عربي وإنجليزي.
-- **Brand Kit:** غيّر الاسم أو اللوجو ومكان العلامة المائية وشفافيتها.
+الواجهة عربية من اليمين لليسار، ومقسّمة لتبويبات **تصوير، تسجيل، وإنشاء**.
+
+- **التقط التبويب / جزء محدد / الصفحة كاملة:** صوّر التاب أو جزء منه أو الصفحة كاملة.
+- **إنشاء ← التقط وافتح الاستوديو:** انقل صورة التاب مباشرة للاستوديو.
+- **الاستوديو الإبداعي:** قوالب جاهزة، شرح مرقّم، أسهم، مقارنة قبل وبعد، واستخراج نص عربي وإنجليزي.
+- **هويّتك (Brand Kit):** غيّر الاسم أو اللوجو ومكان العلامة المائية وشفافيتها.
 - **Export:** صدّر PNG أو JPEG أو WebP بالمقاس والجودة المناسبين.
 
 الاسم الافتراضي للعلامة المائية هو **Yousef Diab | Dokkan Agency**، وتقدر تغيّره أو تعطّله. المقارنة بتتصدّر كصورة ثابتة. صور الاستوديو مش بتتحفظ تلقائيًا بعد إغلاق التاب.

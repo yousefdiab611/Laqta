@@ -19,10 +19,10 @@ const btnTabDesc  = btnTab.querySelector('.action-desc');
 const btnAreaDesc = btnArea.querySelector('.action-desc');
 const btnFullPageDesc = btnFullPage.querySelector('.action-desc');
 
-const TAB_DESC_DEFAULT  = 'Capture the full visible tab';
-const TAB_DESC_QUICK    = 'Copy styled image to clipboard';
-const AREA_DESC_DEFAULT = 'Drag to capture a region';
-const AREA_DESC_QUICK   = 'Select area, copy styled to clipboard';
+const TAB_DESC_DEFAULT  = 'صوّر اللي قدامك، وظبّطه بطريقتك';
+const TAB_DESC_QUICK    = 'لقطتك بإعداداتك، جاهزة للصق';
+const AREA_DESC_DEFAULT = 'حدّد المساحة بنفسك';
+const AREA_DESC_QUICK   = 'حدّد الجزء وانسخه بإعداداتك';
 
 // Keep in sync with src/background/selectionOverlay.js (different runtimes, no shared module possible).
 const NON_SCRIPTABLE_URL_PREFIXES = ['chrome://', 'chrome-extension://', 'edge://', 'about:', 'view-source:', 'https://chromewebstore.google.com'];
@@ -63,10 +63,10 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (NON_SCRIPTABLE_URL_PREFIXES.some((p) => url.startsWith(p))) {
         activeTabIsScriptable = false;
         btnArea.classList.add('disabled-soft');
-        if (btnAreaDesc) btnAreaDesc.textContent = 'Not available on this page';
+        if (btnAreaDesc) btnAreaDesc.textContent = 'غير متاح في الصفحة دي';
         btnPrivate.classList.add('disabled-soft');
         btnFullPage.classList.add('disabled-soft');
-        if (btnFullPageDesc) btnFullPageDesc.textContent = 'Not available on this page';
+        if (btnFullPageDesc) btnFullPageDesc.textContent = 'غير متاح في الصفحة دي';
     }
 });
 
@@ -124,7 +124,7 @@ quickModeToggle.addEventListener('change', () => {
             chrome.storage.local.set({ quickCopyMode: false });
             // Separates "never tried it" from "tried it and the Chrome dialog stopped them".
             trackEvent('quick_copy_disabled', { source: 'popup', reason: 'permission_denied' });
-            showError('Clipboard permission wasn\'t granted, so Quick Copy stays off.');
+            showError('النسخ السريع محتاج إذن الوصول للحافظة. جرّب تفعيله تاني.');
         }
     });
 });
@@ -166,7 +166,7 @@ btnScreen.addEventListener('click', () => {
     chrome.runtime.sendMessage({ type: 'POPUP_CAPTURE_SCREEN' }, (response) => {
         if (!response || !response.ok) {
             btnScreen.classList.remove('loading');
-            showError(response?.error || 'Could not open screen capture.');
+            showError(response?.error || 'تعذّر فتح تصوير النافذة. جرّب تاني.');
             return;
         }
         window.close();
@@ -176,14 +176,14 @@ btnScreen.addEventListener('click', () => {
 btnCopyScreen.addEventListener('click', () => {
     chrome.permissions.request({ permissions: ['clipboardWrite'] }, (granted) => {
         if (!granted) {
-            showError('Clipboard permission is required for Copy Chrome Window.');
+            showError('اسمح بالوصول للحافظة عشان تقدر تنسخ النافذة.');
             return;
         }
         setLoading(btnCopyScreen);
         chrome.runtime.sendMessage({ type: 'POPUP_COPY_SCREEN' }, (response) => {
             if (!response?.ok) {
                 btnCopyScreen.classList.remove('loading');
-                showError(response?.error || 'Could not open screen capture.');
+                showError(response?.error || 'تعذّر فتح تصوير النافذة. جرّب تاني.');
                 return;
             }
             window.close();
@@ -194,7 +194,7 @@ btnCopyScreen.addEventListener('click', () => {
 btnArea.addEventListener('click', () => {
     if (!activeTabIsScriptable) {
         trackEvent('select_area_blocked', { source: 'popup', reason: 'non_scriptable_page' });
-        showError("Area selection isn't available on Chrome's internal pages. Switch to a regular site, or use Screenshot Tab instead.");
+        showError("تحديد جزء مش متاح في صفحات Chrome الداخلية. افتح موقع عادي أو التقط التبويب.");
         return;
     }
     setLoading(btnArea);
@@ -208,14 +208,14 @@ btnArea.addEventListener('click', () => {
 
 btnPrivate.addEventListener('click', () => {
     if (!activeTabIsScriptable) {
-        showError("Private capture isn't available on Chrome's internal pages.");
+        showError("اللقطة الخاصة مش متاحة في صفحات Chrome الداخلية.");
         return;
     }
     setLoading(btnPrivate);
     chrome.runtime.sendMessage({ type: 'POPUP_CAPTURE_PRIVATE' }, (response) => {
         if (!response?.ok) {
             btnPrivate.classList.remove('loading');
-            showError(response?.error || 'Private capture failed.');
+            showError(response?.error || 'تعذّر التقاط الصورة الخاصة. جرّب تاني.');
             return;
         }
         window.close();
@@ -226,7 +226,7 @@ btnPrivate.addEventListener('click', () => {
 btnFullPage.addEventListener('click', () => {
     if (!activeTabIsScriptable) {
         trackEvent('full_page_blocked', { source: 'popup', reason: 'non_scriptable_page' });
-        showError("Full-page capture isn't available on Chrome's internal pages. Switch to a regular site, or use Screenshot Tab instead.");
+        showError("تصوير الصفحة كاملة مش متاح هنا. افتح موقع عادي أو استخدم التقاط التبويب.");
         return;
     }
     trackEvent('full_page_clicked', { source: 'popup' });
@@ -258,7 +258,7 @@ collageInput.addEventListener('change', () => {
     });
 
     if (!valid.length) {
-        showError('No supported images selected (PNG, JPG, WebP).');
+        showError('اختار صور بصيغة PNG أو JPG أو WebP.');
         return;
     }
 
@@ -279,7 +279,7 @@ collageInput.addEventListener('change', () => {
             }
         };
         reader.onerror = () => {
-            showError('Failed to read one or more files.');
+            showError('تعذّر قراءة بعض الصور. جرّب اختيارها تاني.');
             btnCollage.classList.remove('loading');
         };
         reader.readAsDataURL(file);
@@ -291,17 +291,17 @@ fileInput.addEventListener('change', () => {
     if (!file) return;
 
     if (file.type === 'image/heic' || file.type === 'image/heif') {
-        showError('HEIC files are not supported yet. Please convert to PNG or JPG first.');
+        showError('صيغة HEIC مش مدعومة حاليًا. حوّل الصورة إلى PNG أو JPG الأول.');
         return;
     }
 
     if (!file.type.startsWith('image/')) {
-        showError('Only image files (PNG, JPG, WebP) are supported.');
+        showError('اختار صورة بصيغة PNG أو JPG أو WebP.');
         return;
     }
 
     if (file.size > 50 * 1024 * 1024) {
-        showError('File is too large. Maximum size is 50 MB.');
+        showError('حجم الصورة أكبر من المسموح. الحد الأقصى 50 ميجابايت.');
         return;
     }
 
@@ -316,7 +316,7 @@ fileInput.addEventListener('change', () => {
         });
     };
     reader.onerror = () => {
-        showError('Failed to read the file. Please try again.');
+        showError('تعذّر قراءة الصورة. جرّب تاني.');
         btnUpload.classList.remove('loading');
     };
     reader.readAsDataURL(file);
@@ -332,7 +332,7 @@ function handleQuickCopy() {
             btnTab.classList.remove('loading');
             trackEvent('quick_capture_failed', { source: 'popup', error_type: 'unknown', result: 'failure' });
             trackEvent('capture_failed', { capture_type: 'quick_copy', source: 'popup', error_type: 'unknown', result: 'failure' });
-            showError('Capture failed. Try again.');
+            showError('التصوير ما اكتملش. جرّب تاني.');
             return;
         }
         renderAndCopy(response.screenshotDataUrl, response.settings);
@@ -347,7 +347,7 @@ function renderAndCopy(screenshotDataUrl, settings) {
         canvas.toBlob((blob) => {
             if (!blob) {
                 btnTab.classList.remove('loading');
-                showError('Rendering failed. Try again.');
+                showError('تعذّر تجهيز الصورة. جرّب تاني.');
                 return;
             }
             navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
@@ -364,7 +364,7 @@ function renderAndCopy(screenshotDataUrl, settings) {
                     trackEvent('quick_copy_failed', { source: 'popup', error_type: 'clipboard', result: 'failure' });
                     trackEvent('quick_capture_failed', { source: 'popup', error_type: 'clipboard', result: 'failure' });
                     trackEvent('capture_failed', { capture_type: 'quick_copy', source: 'popup', error_type: 'clipboard', result: 'failure' });
-                    showError('Clipboard write failed. Try again.');
+                    showError('تعذّر النسخ للحافظة. جرّب تاني.');
                 });
         }, 'image/png');
     };
@@ -373,7 +373,7 @@ function renderAndCopy(screenshotDataUrl, settings) {
         trackEvent('quick_copy_failed', { source: 'popup', error_type: 'unsupported', result: 'failure' });
         trackEvent('quick_capture_failed', { source: 'popup', error_type: 'unsupported', result: 'failure' });
         trackEvent('capture_failed', { capture_type: 'quick_copy', source: 'popup', error_type: 'unsupported', result: 'failure' });
-        showError('Image load failed. Try again.');
+        showError('تعذّر تحميل الصورة. جرّب تاني.');
     };
     img.src = screenshotDataUrl;
 }
@@ -381,7 +381,7 @@ function renderAndCopy(screenshotDataUrl, settings) {
 function showCopiedFeedback() {
     const titleEl = btnTab.querySelector('.action-title');
     const originalTitle = titleEl ? titleEl.textContent : null;
-    if (titleEl) titleEl.textContent = 'Copied!';
+    if (titleEl) titleEl.textContent = 'اتنسخت!';
     setTimeout(() => {
         window.close();
         if (titleEl && originalTitle) titleEl.textContent = originalTitle;
@@ -398,7 +398,7 @@ document.getElementById('btn-studio-capture').addEventListener('click', async (e
         await chrome.storage.local.set({ studioCapture: dataUrl });
         await chrome.tabs.create({ url: chrome.runtime.getURL('studio/index.html') });
     } catch (error) {
-        errorMsg.textContent = error.message || 'Could not capture this tab. Try a regular website.';
+        showError(error.message || 'تعذّر تصوير التبويب. جرّب على موقع عادي.');
         event.currentTarget.disabled = false;
     }
 });

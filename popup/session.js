@@ -79,6 +79,7 @@
     // feedback_popup_script_patterns memory).
     function showSessionUI(session) {
         if (els.actions) els.actions.style.display = 'none';
+        document.querySelector('.section-tabs').hidden = true;
         els.section.style.display = 'flex';
         renderSession(session);
     }
@@ -86,6 +87,7 @@
     function hideSessionUI() {
         els.section.style.display = 'none';
         if (els.actions) els.actions.style.display = '';
+        document.querySelector('.section-tabs').hidden = false;
     }
 
     let shortcutLabel = null;
@@ -93,16 +95,16 @@
         const frames = (session && session.dataUrls) || [];
         const count = frames.length;
 
-        els.count.textContent = count === 1 ? '1 frame' : `${count} frames`;
+        els.count.textContent = count === 1 ? 'لقطة واحدة' : `${count} لقطات`;
         els.finishBtn.disabled = count < 2;
 
         const reachedMax = count >= MAX_FRAMES;
         if (reachedMax) {
-            els.captureLabel.textContent = 'Max frames reached';
+            els.captureLabel.textContent = 'وصلت للحد الأقصى';
         } else if (count === 0) {
-            els.captureLabel.textContent = 'Drag to capture step 1';
+            els.captureLabel.textContent = 'حدّد مساحة الخطوة الأولى';
         } else {
-            els.captureLabel.textContent = `Drag to capture step ${count + 1}`;
+            els.captureLabel.textContent = `التقط الخطوة ${count + 1}`;
         }
         els.captureBtn.disabled = reachedMax;
 
@@ -117,12 +119,12 @@
 
             const img = document.createElement('img');
             img.src = dataUrl;
-            img.alt = `Frame ${i + 1}`;
+            img.alt = `لقطة ${i + 1}`;
 
             const remove = document.createElement('button');
             remove.className = 'session-thumb-remove';
             remove.type = 'button';
-            remove.setAttribute('aria-label', `Remove frame ${i + 1}`);
+            remove.setAttribute('aria-label', `حذف اللقطة ${i + 1}`);
             remove.dataset.idx = String(i);
             remove.textContent = '×';
 
@@ -133,16 +135,16 @@
         });
 
         const shortcutTip = shortcutLabel
-            ? ` Tip: press ${shortcutLabel} to capture another step without opening the popup.`
-            : ' Tip: set a keyboard shortcut at chrome://extensions/shortcuts to capture steps faster.';
+            ? ` اختصار الالتقاط: ${shortcutLabel}.`
+            : ' تقدر تضيف اختصار للالتقاط من إعدادات اختصارات Chrome.';
         if (reachedMax) {
-            els.hint.textContent = `Maximum of ${MAX_FRAMES} steps reached. Tap Finish to open the collage editor.`;
+            els.hint.textContent = `التقطت ${MAX_FRAMES} خطوات. اضغط إنهاء لتجميع الشرح.`;
         } else if (count === 0) {
-            els.hint.textContent = 'Drag a rectangle around the part of the page that shows the step. Press Esc to cancel.';
+            els.hint.textContent = 'حدّد الجزء اللي بيشرح الخطوة. اضغط Esc للإلغاء.';
         } else if (count === 1) {
-            els.hint.textContent = `Frame 1 saved. Navigate to step 2 and capture again.${shortcutTip}`;
+            els.hint.textContent = `اتحفظت الخطوة الأولى. انتقل للخطوة التانية والتقطها.${shortcutTip}`;
         } else {
-            els.hint.textContent = `${count} steps captured. Add another or tap Finish.${shortcutTip}`;
+            els.hint.textContent = `اتحفظت ${count} خطوات. كمّل أو اضغط إنهاء.${shortcutTip}`;
         }
     }
 

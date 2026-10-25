@@ -58,14 +58,14 @@
         btnRecord.classList.toggle('recording-active', nextState === 'recording');
         btnRecord.classList.toggle('recording-stopping', nextState === 'stopping');
         if (nextState === 'recording') {
-            btnRecord.querySelector('.action-title').textContent = 'Stop and Edit';
-            desc.textContent = 'Stop recording and open the editor';
+            btnRecord.querySelector('.action-title').textContent = 'إيقاف وتعديل';
+            desc.textContent = 'أوقف التسجيل وافتحه في المحرر';
             return;
         }
-        btnRecord.querySelector('.action-title').textContent = nextState === 'stopping' ? 'Opening Editor' : 'Record Tab';
+        btnRecord.querySelector('.action-title').textContent = nextState === 'stopping' ? 'بنجهّز المحرر' : 'ابدأ التسجيل';
         desc.textContent = nextState === 'starting'
-            ? 'Starting recorder...'
-            : (nextState === 'stopping' ? 'Preparing the recorded video' : 'Capture video from this tab');
+            ? 'جاري بدء التسجيل…'
+            : (nextState === 'stopping' ? 'جاري تجهيز الفيديو' : 'سجّل فيديو من التبويب الحالي');
         if (nextState === 'idle') {
             stopTimer();
             timer.hidden = true;
@@ -93,7 +93,7 @@
         setState('starting');
         const tab = await getActiveTab();
         if (!tab || !Number.isInteger(tab.id)) {
-            showError('No active tab available to record.');
+            showError('مفيش تبويب متاح للتسجيل.');
             setState('idle');
             return;
         }
@@ -105,7 +105,7 @@
         });
 
         if (!response.ok) {
-            showError(response.error || 'Could not start tab recording.');
+            showError(response.error || 'تعذّر بدء التسجيل. جرّب تاني.');
             setState('idle');
             return;
         }
@@ -114,7 +114,7 @@
         startedAt = Date.now();
         startTimer();
         setState('recording');
-        showNotice('Recording started. Open لقطة — Laqta again to stop.');
+        showNotice('بدأ التسجيل. افتح لقطة تاني لما تحب توقفه.');
         closeAfterStartId = setTimeout(() => window.close(), 900);
     }
 
@@ -124,7 +124,7 @@
         setState('stopping');
         const response = await sendMessage({ type: 'RECORDING_STOP', recordingId });
         if (!response.ok) {
-            showError(response.error || 'Could not stop recording.');
+            showError(response.error || 'تعذّر إيقاف التسجيل. جرّب تاني.');
             setState('recording');
             return;
         }
