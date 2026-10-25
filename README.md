@@ -23,13 +23,17 @@ This repository contains an unpacked extension, including its compiled editor an
 
 ## A new look for your next shot
 
-An Arabic RTL popup with a dark dotted canvas, lime accents, and dedicated
+An Arabic RTL popup with a dark dotted canvas, sky-blue accents, and dedicated
 **تصوير** (Capture), **تسجيل** (Record), and **إنشاء** (Create) tabs. Common
 actions fit within the 400×600 popup; Studio, history, and branding stay within reach.
+Motion includes staggered card entrances, a sliding tab indicator, hover/press
+feedback, and an animated Quick Copy switch. Waveforms animate only during an
+active recording. Reduced-motion preferences remove spatial and continuous
+effects while retaining a short panel fade.
 
 | Capture | Record | Create |
 | :---: | :---: | :---: |
-| <img src="docs/screenshots/popup-capture.png" width="240" alt="Arabic capture panel with lime screenshot button" /> | <img src="docs/screenshots/popup-record.png" width="240" alt="Tab recording panel" /> | <img src="docs/screenshots/popup-create.png" width="240" alt="Creation tools and Studio entry point" /> |
+| <img src="docs/screenshots/popup-capture.png" width="240" alt="Arabic capture panel with sky-blue screenshot button" /> | <img src="docs/screenshots/popup-record.png" width="240" alt="Tab recording panel" /> | <img src="docs/screenshots/popup-create.png" width="240" alt="Creation tools and Studio entry point" /> |
 
 ## Features
 

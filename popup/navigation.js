@@ -2,6 +2,7 @@
     'use strict';
     const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
     function selectTab(tab) {
+        document.querySelector('.section-tabs').style.setProperty('--tab-index', tabs.indexOf(tab));
         tabs.forEach((item) => {
             const selected = item === tab;
             item.setAttribute('aria-selected', String(selected));
