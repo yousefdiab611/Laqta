@@ -1,0 +1,25 @@
+/* Scope UI overrides to controls; never filter the rendered screenshot or its swatches. */
+#root aside {
+    border-color: var(--ds-separator);
+}
+#root aside button[style*='linear-gradient(135deg, #0e7490'],
+#root aside button[style*='linear-gradient(135deg, rgb(14, 116, 144)'] {
+    background: var(--ds-primary-container) !important;
+    color: var(--ds-on-primary) !important;
+    box-shadow: none !important;
+}
+#root aside button {
+    box-shadow: none;
+}
+#root aside button svg {
+    color: inherit;
+}
+#root main {
+    background-color: var(--laqta-bg);
+}
+#root aside button[data-tooltip-right] {
+    color: var(--ds-on-surface-variant) !important;
+}
+#root aside button[data-tooltip-right]:hover {
+    color: var(--ds-primary) !important;
+}

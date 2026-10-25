@@ -1,13 +1,13 @@
 :root {
     color-scheme: dark;
-    --bg: #10151e;
-    --surface: #1a2230;
-    --surface-hover: #243247;
-    --line: #344257;
-    --text: #f1f5fc;
-    --muted: #a6b5cb;
-    --accent: #78c7ff;
-    --ink: #102b43;
+    --bg: var(--laqta-bg);
+    --surface: var(--laqta-panel);
+    --surface-hover: var(--laqta-card);
+    --line: var(--laqta-line);
+    --text: var(--laqta-text);
+    --muted: var(--laqta-muted);
+    --accent: var(--laqta-accent);
+    --ink: var(--laqta-ink);
     font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
     color: var(--text);
     background: var(--bg);
@@ -56,7 +56,7 @@ svg {
     border-radius: 24px;
     overflow: hidden;
     background:
-        radial-gradient(circle, #8eb8eb21 1px, transparent 1.4px) 0 0 / 24px 24px,
+        radial-gradient(circle, #ffffff14 1px, transparent 1.4px) 0 0 / 24px 24px,
         var(--bg);
 }
 .header {
@@ -79,7 +79,7 @@ svg {
     color: var(--ink);
     border-radius: 15px;
     transform: rotate(-8deg);
-    box-shadow: 3px 5px 0 #78c7ff19;
+    box-shadow: 3px 5px 0 #ffffff0c;
 }
 .brand-mark svg {
     width: 29px;
@@ -111,7 +111,7 @@ h1 {
 .shortcut-button {
     display: grid;
     place-items: center;
-    background: #1a2230a6;
+    background: #1b1b1fa6;
     border: 1px solid var(--line);
     border-radius: 14px;
     width: 44px;
@@ -120,12 +120,12 @@ h1 {
 }
 .shortcut-button:hover {
     color: var(--accent);
-    border-color: #6c9ec9;
+    border-color: #85858f;
 }
 .section-tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background: #1a2230;
+    background: var(--laqta-panel);
     padding: 4px;
     margin: 0 22px;
     border: 1px solid var(--line);
@@ -148,7 +148,7 @@ h1 {
     min-height: 0;
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: #465f7e transparent;
+    scrollbar-color: #52525b transparent;
     padding: 16px 22px 8px;
     flex: 1;
 }
@@ -181,7 +181,7 @@ h1 {
 }
 .action-btn:hover {
     background: var(--surface-hover);
-    border-color: #6c9ec9;
+    border-color: #85858f;
 }
 .action-icon {
     display: grid;
@@ -215,14 +215,14 @@ h1 {
     gap: 13px;
 }
 .hero-action:hover {
-    background: #a4daff;
-    border-color: #a4daff;
+    background: var(--laqta-accent-hover);
+    border-color: var(--laqta-accent-hover);
 }
 .hero-action .action-icon {
     width: 40px;
     height: 40px;
     border-radius: 12px;
-    background: #102b4314;
+    background: #15151814;
     color: var(--ink);
 }
 .hero-action .action-title {
@@ -230,7 +230,7 @@ h1 {
     font-weight: 750;
 }
 .hero-action .action-desc {
-    color: #244b69;
+    color: #34343c;
     font-size: 11px;
 }
 .capture-grid,
@@ -299,8 +299,8 @@ h1 {
     width: 42px;
     height: 24px;
     border-radius: 99px;
-    background: #2b3a50;
-    border: 1px solid #526b8c;
+    background: #303035;
+    border: 1px solid #52525b;
     position: relative;
     pointer-events: none;
 }
@@ -311,7 +311,7 @@ h1 {
     right: 3px;
     width: 16px;
     height: 16px;
-    background: #a0b5cf;
+    background: #ababb5;
     border-radius: 50%;
 }
 .toggle input:checked + .toggle-track {
@@ -332,15 +332,15 @@ footer {
     display: flex;
     align-items: center;
     gap: 11px;
-    border: 1px solid #3c5d7e;
-    background: #1c344ce6;
+    border: 1px solid #3b3b42;
+    background: #303035e6;
     text-align: start;
     border-radius: 17px;
     padding: 12px 14px;
 }
 .studio-link:hover {
     border-color: var(--accent);
-    background: #294a68;
+    background: #3c3c43;
 }
 .studio-spark {
     color: var(--accent);
@@ -389,7 +389,7 @@ footer {
     height: 18px;
 }
 .footer-signature {
-    color: #a6b5cb;
+    color: var(--laqta-muted);
     font-size: 8px;
     letter-spacing: 0;
     text-align: center;
@@ -406,11 +406,11 @@ footer {
 .record-window {
     width: 210px;
     height: 116px;
-    border: 1px solid #4a6483;
-    background: #1c293a;
+    border: 1px solid #52525b;
+    background: #222226;
     border-radius: 18px;
     transform: rotate(-4deg);
-    box-shadow: 9px 9px 0 #24344d66;
+    box-shadow: 9px 9px 0 #30303566;
     position: relative;
 }
 .window-dots {
@@ -419,7 +419,7 @@ footer {
     left: 14px;
     letter-spacing: 3px;
     font-size: 16px;
-    color: #7593b8;
+    color: #a1a1aa;
     line-height: 1;
 }
 .record-symbol {
@@ -429,7 +429,7 @@ footer {
     border-radius: 50%;
     display: block;
     margin: 32px auto 10px;
-    box-shadow: 0 0 0 9px #78c7ff10;
+    box-shadow: 0 0 0 9px #ffffff10;
 }
 .wave-bars {
     display: flex;
@@ -442,7 +442,7 @@ footer {
     display: block;
     width: 3px;
     height: 8px;
-    background: #8fc4ec;
+    background: #d4d4d8;
     border-radius: 2px;
 }
 .wave-bars i:nth-child(2n) {
@@ -455,10 +455,10 @@ footer {
     position: absolute;
     left: 35px;
     bottom: 3px;
-    background: #253d58;
+    background: #303035;
     color: var(--accent);
     padding: 6px 10px;
-    border: 1px solid #4a6483;
+    border: 1px solid #52525b;
     border-radius: 8px;
     font: 600 10px monospace;
     letter-spacing: 2px;
@@ -529,9 +529,9 @@ footer {
     display: block;
 }
 .error-msg.notice {
-    background: #1c344c;
-    color: #d5edff;
-    border-color: #4c749b;
+    background: #252529;
+    color: #e4e4e7;
+    border-color: #52525b;
 }
 .disabled-soft {
     opacity: 0.55;
@@ -616,7 +616,7 @@ footer {
     left: 0;
     border: 0;
     border-radius: 6px;
-    background: #10151edd;
+    background: #111113dd;
     width: 44px;
     height: 44px;
     font-size: 20px;
@@ -627,7 +627,7 @@ footer {
     min-height: 44px;
     border: 1px solid var(--line);
     border-radius: 10px;
-    background: #26374d;
+    background: #303035;
     padding: 10px;
 }
 .session-capture-btn {
@@ -686,7 +686,7 @@ footer {
     width: calc((100% - 8px) / 3);
     height: calc(100% - 8px);
     border-radius: 10px;
-    background: #233d55;
+    background: var(--laqta-soft);
     transform: translateX(calc(var(--tab-index, 0) * -100%));
     z-index: -1;
     pointer-events: none;

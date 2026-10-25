@@ -1,0 +1,184 @@
+/* Shared interface palette. Image colors and export canvases remain user-controlled. */
+:root,
+:root[data-theme='light'] {
+    color-scheme: dark;
+    --laqta-bg: #111113;
+    --laqta-panel: #1b1b1f;
+    --laqta-card: #252529;
+    --laqta-raised: #303035;
+    --laqta-line: #3b3b42;
+    --laqta-text: #f4f4f5;
+    --laqta-muted: #ababb5;
+    --laqta-accent: #f4f4f5;
+    --laqta-accent-hover: #ffffff;
+    --laqta-ink: #151518;
+    --laqta-soft: #303035;
+    --ds-surface-lowest: var(--laqta-bg);
+    --ds-surface-low: var(--laqta-panel);
+    --ds-surface-mid: #222226;
+    --ds-surface-high: var(--laqta-card);
+    --ds-surface-highest: var(--laqta-raised);
+    --ds-primary: #ffffff;
+    --ds-primary-container: var(--laqta-accent);
+    --ds-on-primary: var(--laqta-ink);
+    --ds-secondary-container: var(--laqta-soft);
+    --ds-on-secondary-container: var(--laqta-accent);
+    --ds-tertiary: #e4e4e7;
+    --ds-tertiary-container: #d4d4d8;
+    --ds-on-surface: var(--laqta-text);
+    --ds-on-surface-variant: var(--laqta-muted);
+    --ds-outline: #a1a1aa;
+    --ds-outline-variant: var(--laqta-line);
+    --ds-card-border: #3b3b42;
+    --ds-card-border-hover: #71717a;
+    --ds-separator: #343438;
+    --ds-control-border: #52525b;
+    --ds-ambient-warm: rgba(244, 244, 245, 0.035);
+    --ds-ambient-teal: rgba(244, 244, 245, 0.02);
+    --ds-primary-bg: rgba(244, 244, 245, 0.12);
+    --ds-primary-glow: rgba(244, 244, 245, 0.06);
+    --ds-teal-glow: rgba(244, 244, 245, 0.06);
+    --bg: var(--laqta-bg);
+    --surface: var(--laqta-panel);
+    --surface-hover: var(--laqta-card);
+    --line: var(--laqta-line);
+    --text: var(--laqta-text);
+    --muted: var(--laqta-muted);
+    --accent: var(--laqta-accent);
+    --ink: var(--laqta-ink);
+}
+:root[data-theme='light'] {
+    color-scheme: light;
+    --laqta-bg: #e9e9ed;
+    --laqta-panel: #fafafa;
+    --laqta-card: #f1f1f4;
+    --laqta-raised: #e4e4e7;
+    --laqta-line: #c4c4cc;
+    --laqta-text: #18181b;
+    --laqta-muted: #52525b;
+    --laqta-accent: #202024;
+    --laqta-accent-hover: #35353c;
+    --laqta-ink: #fafafa;
+    --laqta-soft: #e4e4e7;
+    --ds-surface-mid: #ededf0;
+    --ds-primary: #35353c;
+    --ds-tertiary: #3f3f46;
+    --ds-tertiary-container: #52525b;
+    --ds-outline: #71717a;
+    --ds-card-border: #d4d4d8;
+    --ds-card-border-hover: #a1a1aa;
+    --ds-separator: #d4d4d8;
+    --ds-control-border: #a1a1aa;
+}
+html {
+    background: var(--laqta-bg);
+    color: var(--laqta-text);
+}
+body {
+    background: var(--laqta-bg) !important;
+    color: var(--laqta-text);
+}
+input,
+select,
+textarea {
+    accent-color: var(--laqta-accent);
+}
+:focus-visible {
+    outline-color: var(--laqta-accent);
+}
+body.laqta-page header {
+    background: var(--laqta-panel);
+    border-color: var(--laqta-line);
+}
+body.laqta-page section,
+body.laqta-page .panel,
+body.laqta-page .capture,
+body.laqta-page .image-row {
+    background: var(--laqta-panel);
+    border-color: var(--laqta-line);
+    box-shadow: none;
+}
+body.laqta-page p,
+body.laqta-page .hint,
+body.laqta-page label,
+body.laqta-page .privacy,
+body.laqta-page time,
+body.laqta-page .copyright {
+    color: var(--laqta-muted);
+}
+body.laqta-page h1,
+body.laqta-page h2,
+body.laqta-page strong {
+    color: var(--laqta-text);
+}
+body.laqta-page input:not([type='checkbox']):not([type='range']),
+body.laqta-page select,
+body.laqta-page textarea {
+    background: var(--laqta-bg);
+    color: var(--laqta-text);
+    border-color: var(--laqta-line);
+}
+body.laqta-page button,
+body.laqta-page .w-cta {
+    background: var(--laqta-accent);
+    color: var(--laqta-ink);
+    border-color: var(--laqta-accent);
+}
+body.laqta-page button:hover {
+    background: var(--laqta-accent-hover);
+}
+body.laqta-page button.secondary,
+body.laqta-page .image-actions button,
+body.laqta-page .image-top button,
+body.laqta-page .export-link {
+    background: var(--laqta-card);
+    color: var(--laqta-text);
+    border-color: var(--laqta-line);
+}
+body.laqta-page button.delete,
+body.laqta-page button.danger {
+    background: #542f29;
+    color: #ffd1c7;
+}
+body.laqta-page a,
+body.laqta-page output,
+body.laqta-page .status {
+    color: var(--laqta-accent);
+}
+body.laqta-page .preview,
+body.laqta-page .screen-preview {
+    background: linear-gradient(135deg, #29292f, #1b1b1f);
+    border-color: var(--laqta-line);
+    box-shadow: none;
+}
+body.laqta-page .screen-content,
+body.laqta-page .settings span {
+    color: var(--laqta-muted);
+}
+body.laqta-page .image-row.selected {
+    background: var(--laqta-soft);
+    border-color: var(--laqta-accent);
+}
+body.laqta-page .preview-heading span,
+body.laqta-page #empty {
+    color: var(--laqta-muted);
+}
+body.laqta-page .toggle {
+    background: var(--laqta-card);
+}
+body.laqta-page .browser span {
+    background: var(--laqta-accent);
+}
+body.laqta-page #watermark {
+    color: white;
+}
+@media print {
+    body.laqta-page {
+        background: white !important;
+        color: black;
+    }
+}
+
+body.laqta-page #empty strong {
+    color: var(--laqta-text);
+}

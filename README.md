@@ -23,7 +23,9 @@ This repository contains an unpacked extension, including its compiled editor an
 
 ## A new look for your next shot
 
-An Arabic RTL popup with a dark dotted canvas, sky-blue accents, and dedicated
+A shared black, white, and neutral gray interface across the popup, editor, Studio,
+Brand Kit, history, export tools, capture page, and welcome screen. The Arabic
+RTL popup has a dark dotted canvas and dedicated
 **تصوير** (Capture), **تسجيل** (Record), and **إنشاء** (Create) tabs. Common
 actions fit within the 400×600 popup; Studio, history, and branding stay within reach.
 Motion includes staggered card entrances, a sliding tab indicator, hover/press
@@ -33,7 +35,9 @@ effects while retaining a short panel fade.
 
 | Capture | Record | Create |
 | :---: | :---: | :---: |
-| <img src="docs/screenshots/popup-capture.png" width="240" alt="Arabic capture panel with sky-blue screenshot button" /> | <img src="docs/screenshots/popup-record.png" width="240" alt="Tab recording panel" /> | <img src="docs/screenshots/popup-create.png" width="240" alt="Creation tools and Studio entry point" /> |
+| <img src="docs/screenshots/popup-capture.png" width="240" alt="Arabic capture panel with monochrome screenshot button" /> | <img src="docs/screenshots/popup-record.png" width="240" alt="Tab recording panel" /> | <img src="docs/screenshots/popup-create.png" width="240" alt="Creation tools and Studio entry point" /> |
+
+Editor previews: [Dark mode](docs/screenshots/editor-dark.png) · [Light mode](docs/screenshots/editor-light.png).
 
 ## Features
 
@@ -164,6 +168,7 @@ The popup's **Supporter Badge** email signup has been removed. No blanket claim 
 
 ```text
 manifest.json          Chrome Manifest V3 configuration
+assets/theme/          Shared monochrome interface tokens
 popup/                 Capture actions and Studio entry points
 editor/                Compiled editor assets and Studio transfer button
 studio/                Templates, tutorials, comparisons, OCR, and image export
@@ -188,10 +193,13 @@ The redesigned popup was checked for RTL keyboard tab navigation, Quick Copy
 on/off, session restore/cancel, and all three panels fitting at 400×600. An
 injected recording-status fixture verified selecting the recording tab and
 showing the stop button/timer when a recording is restored; this did not start
-a real recording. Gallery screenshots use a normal-site URL fixture.
+a real recording. Gallery screenshots use a normal-site URL fixture. The shared monochrome
+palette was verified across all eight visible extension pages, including both
+editor modes; editor image export was also exercised after theme integration.
 
 See [Studio documentation](studio/README.md) for implementation notes and limits,
-and the [popup layout decision](docs/adr/0001-popup-navigation.md) for UI structure.
+the [popup layout decision](docs/adr/0001-popup-navigation.md) for UI structure,
+and the [shared palette decision](docs/adr/0002-shared-interface-palette.md) for theme integration.
 
 ## Troubleshooting
 
@@ -242,6 +250,8 @@ No project-wide license is included in this repository. Bundled dependency licen
 - **Export:** صدّر PNG أو JPEG أو WebP بالمقاس والجودة المناسبين.
 
 الاسم الافتراضي للعلامة المائية هو **Yousef Diab | Dokkan Agency**، وتقدر تغيّره أو تعطّله. المقارنة بتتصدّر كصورة ثابتة. صور الاستوديو مش بتتحفظ تلقائيًا بعد إغلاق التاب.
+
+ألوان الواجهة موحّدة في كل صفحات الإضافة: أبيض وأسود ودرجات رمادي محايدة، مع دعم الوضع الفاتح في المحرر.
 
 معالجة الصور وOCR محلية، لكن النسخة الحالية لسه فيها كود وروابط لخدمات FramedShot؛ راجع قسم الخصوصية فوق للتفاصيل.
 
