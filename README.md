@@ -28,7 +28,8 @@ Brand Kit, history, export tools, capture page, and welcome screen. The Arabic
 RTL popup has a dark dotted canvas and dedicated
 **تصوير** (Capture), **تسجيل** (Record), and **إنشاء** (Create) tabs. Common
 actions fit within the 400×600 popup; Studio, history, and branding stay within reach.
-Motion includes staggered card entrances, a sliding tab indicator, hover/press
+A short opening signature animates the logo and Arabic/English name once when
+the popup opens. Motion also includes staggered card entrances, a sliding tab indicator, hover/press
 feedback, and an animated Quick Copy switch. Waveforms animate only during an
 active recording. Reduced-motion preferences remove spatial and continuous
 effects while retaining a short panel fade.
