@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to لقطة — Laqta</title>
+    <link rel="stylesheet" href="welcome.css" />
+</head>
+
+<body>
+    <main class="welcome">
+        <header class="w-header">
+            <img src="../assets/icons/framedshot-logo.png" class="w-logo" alt="لقطة — Laqta" />
+            <div class="w-header-text">
+                <h1 class="w-title">لقطة — Laqta is installed</h1>
+                <p class="w-sub">You're set up. Here's the fastest way to your first polished screenshot — about 20
+                    seconds.</p>
+            </div>
+        </header>
+
+        <ol class="w-steps">
+            <li class="w-step">
+                <span class="w-step-num">1</span>
+                <div class="w-step-body">
+                    <h2 class="w-step-title">Pin لقطة — Laqta to your toolbar</h2>
+                    <p class="w-step-desc">Click the puzzle-piece icon in Chrome's toolbar, then the pin next to
+                        لقطة — Laqta. Now it's one click away on any page.</p>
+                </div>
+            </li>
+            <li class="w-step">
+                <span class="w-step-num">2</span>
+                <div class="w-step-body">
+                    <h2 class="w-step-title">Capture a tab</h2>
+                    <p class="w-step-desc">Open any website, click the لقطة — Laqta icon, then <strong>Screenshot
+                            Tab</strong>. The editor opens with your screenshot ready to style.</p>
+                </div>
+            </li>
+            <li class="w-step">
+                <span class="w-step-num">3</span>
+                <div class="w-step-body">
+                    <h2 class="w-step-title">Frame, redact, export</h2>
+                    <p class="w-step-desc">Add a background and browser frame, blur anything sensitive, then export a PNG
+                        or copy straight to your clipboard.</p>
+                </div>
+            </li>
+        </ol>
+
+        <section class="w-shortcuts">
+            <h2 class="w-shortcuts-title">Prefer the keyboard?</h2>
+            <p class="w-shortcuts-desc">
+                <span class="w-combo"><kbd class="js-mod">Ctrl</kbd><span class="w-plus">+</span><kbd>Shift</kbd><span
+                        class="w-plus">+</span><kbd>S</kbd></span> captures the tab.
+                <span class="w-combo"><kbd class="js-mod">Ctrl</kbd><span class="w-plus">+</span><kbd>Shift</kbd><span
+                        class="w-plus">+</span><kbd>E</kbd></span> selects an area.
+            </p>
+            <button class="w-link" id="open-shortcuts" type="button">Change these shortcuts</button>
+        </section>
+
+        <div class="w-cta-row">
+            <button class="w-cta" id="got-it" type="button">Got it</button>
+        </div>
+    </main>
+    <script src="welcome.js"></script>
+</body>
+
+</html>

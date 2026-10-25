@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لقطة — Laqta Chrome Window Capture</title>
+    <link rel="stylesheet" href="screen-capture.css" />
+</head>
+<body>
+    <main class="card">
+        <img class="logo" src="../assets/icons/framedshot-logo.png" alt="لقطة — Laqta" />
+        <h1>Screenshot the Chrome window</h1>
+        <p id="description">Choose your main Chrome window—the one showing your target page. This helper minimizes automatically before the screenshot.</p>
+        <div class="screen-preview" aria-hidden="true">
+            <div class="screen-bar"></div>
+            <div class="screen-content">Chrome Window</div>
+        </div>
+        <div class="settings">
+            <label>
+                <span>Timer</span>
+                <select id="timer">
+                    <option value="0">No delay</option>
+                    <option value="3">3 seconds</option>
+                    <option value="5">5 seconds</option>
+                    <option value="10">10 seconds</option>
+                </select>
+            </label>
+            <label class="check"><input id="cursor" type="checkbox" checked /> Include mouse pointer</label>
+            <label class="check"><input id="copy" type="checkbox" /> Copy instead of opening editor</label>
+        </div>
+        <button id="start" type="button">Choose Chrome Window</button>
+        <button id="cancel" class="secondary" type="button">Cancel</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+    </main>
+    <video id="capture-video" muted playsinline></video>
+    <script src="screen-capture.js"></script>
+</body>
+</html>

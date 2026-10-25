@@ -1,0 +1,33 @@
+.recording-btn .action-icon {
+    background: rgba(239, 68, 68, 0.16);
+    border: 1px solid rgba(239, 68, 68, 0.32);
+    color: #f87171;
+}
+
+.recording-btn:hover {
+    border-color: rgba(239, 68, 68, 0.32);
+}
+
+.recording-btn.recording-active {
+    border-color: rgba(255, 191, 0, 0.45);
+    background: rgba(255, 191, 0, 0.10);
+    box-shadow: 0 0 0 1px rgba(255, 191, 0, 0.08), 0 10px 28px rgba(255, 191, 0, 0.08);
+}
+
+.recording-btn.recording-active .action-icon {
+    background: rgba(255, 191, 0, 0.18);
+    border-color: rgba(255, 191, 0, 0.35);
+    color: var(--ds-primary-container);
+}
+
+.recording-btn.recording-stopping {
+    border-color: rgba(255, 191, 0, 0.35);
+}
+
+.recording-timer {
+    margin-left: auto;
+    color: var(--ds-primary);
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}

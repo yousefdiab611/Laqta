@@ -1,0 +1,68 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 3,
+  "name": "لقطة — Laqta",
+  "version": "3.4.0",
+  "description": "Polish screenshots and tab recordings with frames, annotations, redactions, mockups, and local export.",
+  "homepage_url": "https://framed-shot.com/",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabCapture",
+    "desktopCapture",
+    "offscreen"
+  ],
+  "optional_permissions": [
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://framed-shot.com/*"
+  ],
+  "commands": {
+    "capture-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Capture the current tab and open it in Laqta"
+    },
+    "capture-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Select an area on the page and open it in Laqta"
+    },
+    "record-tab": {
+      "description": "Record the current tab with Laqta"
+    },
+    "capture-session-step": {
+      "description": "Capture next step in a Capture Steps session (drag to select)"
+    },
+    "capture-fullpage": {
+      "description": "Capture the full scrolling page and open it in Laqta"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/framedshot-logo.png",
+    "48": "assets/icons/framedshot-logo.png",
+    "128": "assets/icons/framedshot-logo.png"
+  },
+  "action": {
+    "default_title": "لقطة — Laqta",
+    "default_popup": "popup/index.html",
+    "default_icon": {
+      "16": "assets/icons/framedshot-logo.png",
+      "48": "assets/icons/framedshot-logo.png",
+      "128": "assets/icons/framedshot-logo.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; worker-src 'self'"
+  },
+  "short_name": "Laqta"
+}

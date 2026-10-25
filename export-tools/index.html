@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لقطة — Laqta Export Tools</title>
+    <link rel="stylesheet" href="export-tools.css" />
+</head>
+<body>
+    <header><img src="../assets/icons/framedshot-logo.png" alt="" /><div><h1>Export Tools</h1><p>Local conversion—your files never leave this device.</p></div></header>
+    <main id="tools">
+        <section><h2>Creative Studio</h2><p>Templates, numbered tutorials, Before &amp; After, Arabic/English OCR and compressed exports.</p><a href="../studio/index.html">Open Creative Studio →</a></section>
+        <section><h2>Images → PDF</h2><p>Choose one or more screenshots, then save as PDF from the print dialog.</p><input id="pdf-files" type="file" accept="image/*" multiple /><button id="pdf-export" type="button">Create PDF</button></section>
+        <section><h2>Images → Animated GIF</h2><p>Create a looping tutorial from multiple screenshots.</p><input id="gif-files" type="file" accept="image/*" multiple /><label>Frame delay <select id="gif-delay"><option value="80">0.8 sec</option><option value="120" selected>1.2 sec</option><option value="200">2 sec</option></select></label><button id="gif-export" type="button">Create GIF</button></section>
+        <section><h2>Video → MP4</h2><p>Convert a WebM recording when this Chrome version supports MP4 recording.</p><input id="video-file" type="file" accept="video/webm,video/*" /><button id="mp4-export" type="button">Create MP4</button></section>
+        <p id="status" class="status" role="status"></p>
+    </main>
+    <div id="print-pages"></div>
+    <script src="gif-encoder.js"></script>
+    <script src="export-tools.js"></script>
+</body>
+</html>

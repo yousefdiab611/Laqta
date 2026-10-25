@@ -1,0 +1,230 @@
+/* ─── Capture session card ──────────────────────────────────────── */
+.capture-session {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 191, 0, 0.35);
+    background: linear-gradient(180deg, rgba(255, 191, 0, 0.06), rgba(255, 191, 0, 0.02));
+    box-shadow: 0 0 0 1px rgba(255, 191, 0, 0.05), 0 10px 28px rgba(255, 191, 0, 0.06);
+    position: relative;
+    z-index: 1;
+}
+
+.session-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.session-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.session-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ds-primary-container);
+    box-shadow: 0 0 0 3px rgba(255, 191, 0, 0.18);
+    animation: session-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes session-pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(255, 191, 0, 0.18); }
+    50%      { box-shadow: 0 0 0 5px rgba(255, 191, 0, 0.06); }
+}
+
+.session-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ds-on-surface);
+    letter-spacing: -0.01em;
+}
+
+.session-count {
+    font-size: 10.5px;
+    color: var(--ds-on-surface-variant);
+    font-variant-numeric: tabular-nums;
+}
+
+.session-thumbs {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    min-height: 44px;
+    padding: 6px;
+    border-radius: 8px;
+    background: var(--ds-surface-lowest);
+    border: 1px dashed var(--ds-outline-variant);
+}
+
+.session-thumbs:empty::before {
+    content: 'No frames yet — capture this tab to start.';
+    font-size: 10.5px;
+    color: var(--ds-on-surface-variant);
+    align-self: center;
+    margin: auto;
+    padding: 4px 6px;
+}
+
+.session-thumb {
+    position: relative;
+    width: 48px;
+    height: 32px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--ds-outline-variant);
+    background: var(--ds-surface-low);
+}
+
+.session-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.session-thumb-num {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--ds-on-primary);
+    background: var(--ds-primary-container);
+    padding: 0 3px;
+    border-radius: 2px;
+    line-height: 1.3;
+    font-variant-numeric: tabular-nums;
+}
+
+.session-thumb-remove {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 10px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.session-thumb:hover .session-thumb-remove {
+    opacity: 1;
+}
+
+.session-capture-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--ds-primary-container);
+    background: linear-gradient(180deg, var(--ds-primary-container), #e6ac00);
+    color: var(--ds-on-primary);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.05s;
+}
+
+.session-capture-btn:hover {
+    filter: brightness(1.06);
+}
+
+.session-capture-btn:active {
+    transform: translateY(1px);
+}
+
+.session-capture-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: none;
+}
+
+.session-capture-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.session-capture-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.session-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.session-finish-btn {
+    flex: 1;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--ds-card-border);
+    background: var(--ds-surface-mid);
+    color: var(--ds-on-surface);
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.session-finish-btn:hover:not(:disabled) {
+    border-color: var(--ds-primary-container);
+    background: rgba(255, 191, 0, 0.08);
+}
+
+.session-finish-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.session-cancel-btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--ds-card-border);
+    background: transparent;
+    color: var(--ds-on-surface-variant);
+    font-size: 11.5px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.session-cancel-btn:hover {
+    color: #ffb4ab;
+    border-color: rgba(255, 180, 171, 0.45);
+    background: rgba(255, 180, 171, 0.06);
+}
+
+.session-hint {
+    font-size: 10px;
+    color: var(--ds-on-surface-variant);
+    line-height: 1.4;
+    text-align: center;
+    margin: 0;
+}
+
+/* Capture steps action button accent */
+#btn-capture-steps .action-icon {
+    background: rgba(255, 191, 0, 0.14);
+    border: 1px solid rgba(255, 191, 0, 0.28);
+    color: var(--ds-primary);
+}
+
+#btn-capture-steps:hover {
+    border-color: rgba(255, 191, 0, 0.28);
+}

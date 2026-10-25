@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لقطة — Laqta Brand Kit</title>
+    <link rel="stylesheet" href="brand-kit.css" />
+</head>
+<body>
+    <main class="panel">
+        <header><img src="../assets/icons/framedshot-logo.png" alt="" /><div><h1>Brand Kit</h1><p>Apply your logo or watermark to new captures automatically.</p></div></header>
+        <label class="toggle"><input id="enabled" type="checkbox" /><span>Enable Brand Kit</span></label>
+        <section class="fields">
+            <label>Logo<input id="logo" type="file" accept="image/png,image/jpeg,image/webp" /></label>
+            <button id="remove-logo" class="secondary" type="button">Remove logo</button>
+            <label>Text fallback<input id="text" type="text" maxlength="60" placeholder="© Your brand" /></label>
+            <label>Position<select id="position"><option value="bottom-right">Bottom right</option><option value="bottom-left">Bottom left</option><option value="top-right">Top right</option><option value="top-left">Top left</option></select></label>
+            <label>Size <output id="size-output">12%</output><input id="size" type="range" min="5" max="30" value="12" /></label>
+            <label>Opacity <output id="opacity-output">85%</output><input id="opacity" type="range" min="20" max="100" value="85" /></label>
+        </section>
+        <div class="preview"><div class="browser"><span></span><span></span><span></span></div><div id="watermark">Your brand</div></div>
+        <p id="status" class="status"></p>
+        <button id="save" type="button">Save Brand Kit</button>
+    </main>
+    <script src="../src/lib/personalBrandKit.js"></script>
+    <script src="brand-kit.js"></script>
+</body>
+</html>

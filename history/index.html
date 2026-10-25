@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لقطة — Laqta History</title>
+    <link rel="stylesheet" href="history.css" />
+</head>
+<body>
+    <header>
+        <div><img src="../assets/icons/framedshot-logo.png" alt="" /><h1>Capture History</h1></div>
+        <button id="clear" class="danger" type="button">Clear history</button>
+    </header>
+    <main>
+        <p class="privacy">Your latest 20 captures are stored locally on this device.</p>
+        <div id="empty" class="empty" hidden>No captures yet.</div>
+        <div id="grid" class="grid"></div>
+    </main>
+    <script src="../src/lib/captureHistory.js"></script>
+    <script src="history.js"></script>
+</body>
+</html>

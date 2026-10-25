@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لقطة — Laqta</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="recording.css" />
+    <link rel="stylesheet" href="session.css" />
+</head>
+
+<body>
+    <div class="popup">
+        <div class="header">
+            <img src="../assets/icons/framedshot-logo.png" class="logo" alt="لقطة — Laqta" />
+            <div class="header-text">
+                <span class="header-title">لقطة — Laqta</span>
+                <span class="header-sub">Use <button class="shortcuts-link" id="btn-shortcuts">shortcuts</button> for a
+                    faster experience</span>
+            </div>
+        </div>
+        <div class="quick-mode-row" id="quick-mode-row">
+            <div class="quick-mode-text">
+                <div class="quick-mode-title-row">
+                    <span class="quick-mode-label">Quick copy</span>
+                </div>
+                <span class="quick-mode-desc">Skip editor — copy with your saved settings</span>
+            </div>
+            <label class="toggle" for="quick-mode-toggle" aria-label="Enable quick copy mode">
+                <input type="checkbox" id="quick-mode-toggle" />
+                <span class="toggle-track"></span>
+            </label>
+        </div>
+        <div class="actions">
+            <button class="action-btn action-btn-primary" id="btn-tab">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <path d="M8 21h8M12 17v4" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <span class="action-title">Screenshot Tab</span>
+                    <span class="action-desc">Capture the full visible tab</span>
+                </div>
+            </button>
+            <button class="action-btn" id="btn-screen" type="button">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <path d="M8 21h8M12 17v4" />
+                        <path d="M8 7H6v2M16 7h2v2M8 13H6v-2M16 13h2v-2" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <div class="action-title-row">
+                        <span class="action-title">Screenshot Chrome</span>
+                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
+                    </div>
+                    <span class="action-desc">Capture the full Chrome window</span>
+                </div>
+            </button>
+            <button class="action-btn" id="btn-copy-screen" type="button">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="8" y="8" width="12" height="12" rx="2" />
+                        <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <span class="action-title">Copy Chrome Window</span>
+                    <span class="action-desc">Copy the full browser window</span>
+                </div>
+            </button>
+            <button class="action-btn" id="btn-area">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                        <rect x="7" y="7" width="10" height="10" rx="1" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <span class="action-title">Select Area</span>
+                    <span class="action-desc">Drag to capture a region</span>
+                </div>
+            </button>
+            <button class="action-btn" id="btn-private" type="button">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <div class="action-title-row">
+                        <span class="action-title">Private Screenshot</span>
+                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
+                    </div>
+                    <span class="action-desc">Auto-blur emails, phones and secrets</span>
+                </div>
+            </button>
+            <button class="action-btn" id="btn-fullpage">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="5" y="3" width="14" height="18" rx="2" />
+                        <path d="M9 9l3-3 3 3" />
+                        <path d="M9 15l3 3 3-3" />
+                        <path d="M12 6v12" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <div class="action-title-row">
+                        <span class="action-title">Full Page</span>
+                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
+                    </div>
+                    <span class="action-desc">Scroll and stitch the entire page</span>
+                </div>
+            </button>
+            <button class="action-btn recording-btn" id="btn-record" type="button">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <circle cx="12" cy="12" r="6" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <div class="action-title-row">
+                        <span class="action-title">Record Tab</span>
+                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
+                    </div>
+                    <span class="action-desc" id="recording-desc">Capture video from this tab</span>
+                </div>
+                <span class="recording-timer" id="recording-timer" hidden>00:00</span>
+            </button>
+            <button class="action-btn" id="btn-capture-steps">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <path d="M14 17.5h7M17.5 14v7" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <div class="action-title-row">
+                        <span class="action-title">Capture steps</span>
+                        <span class="quick-mode-new-badge" aria-hidden="true">NEW</span>
+                    </div>
+                    <span class="action-desc">Drag a box around each step, then build a tutorial collage</span>
+                </div>
+            </button>
+            <button class="action-btn" id="btn-collage">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="8" height="8" rx="1" />
+                        <rect x="13" y="3" width="8" height="8" rx="1" />
+                        <rect x="3" y="13" width="8" height="8" rx="1" />
+                        <rect x="13" y="13" width="8" height="8" rx="1" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <span class="action-title">Create Collage</span>
+                    <span class="action-desc">Combine images you already have</span>
+                </div>
+            </button>
+            <button class="action-btn" id="btn-upload">
+                <div class="action-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" y1="3" x2="12" y2="15" />
+                    </svg>
+                </div>
+                <div class="action-text">
+                    <span class="action-title">Upload Image</span>
+                    <span class="action-desc">Open a local PNG, JPG or WebP</span>
+                </div>
+            </button>
+        </div>
+        <div class="capture-session" id="capture-session" style="display: none;">
+            <div class="session-header">
+                <div class="session-title">
+                    <span class="session-dot" aria-hidden="true"></span>
+                    <span class="session-label">Capture session</span>
+                </div>
+                <span class="session-count" id="session-count">0 frames</span>
+            </div>
+            <div class="session-thumbs" id="session-thumbs" aria-live="polite"></div>
+            <button class="session-capture-btn" id="session-capture-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M8 21h8M12 17v4" />
+                </svg>
+                <span id="session-capture-label">Capture this tab</span>
+            </button>
+            <div class="session-actions">
+                <button class="session-cancel-btn" id="session-cancel-btn" type="button">Discard</button>
+                <button class="session-finish-btn" id="session-finish-btn" type="button" disabled>Finish &amp; build collage</button>
+            </div>
+            <p class="session-hint" id="session-hint">Navigate to your next step, then reopen the extension to capture it.</p>
+        </div>
+        <div class="error-msg" id="error-msg"></div>
+        <div class="studio-actions">
+            <button id="btn-studio" type="button">Creative Studio</button>
+            <button id="btn-studio-capture" type="button">Capture to Studio</button>
+        </div>
+        <div class="utility-actions">
+            <button id="btn-history" type="button">History</button>
+            <button id="btn-brand" type="button">Brand Kit</button>
+            <button id="btn-export-tools" type="button">Export Tools</button>
+        </div>
+    </div>
+    <input type="file" id="file-input" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" />
+    <input type="file" id="collage-input" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" multiple />
+    <script src="quickCopyCanvas.js"></script>
+    <script src="popup.js"></script>
+    <script src="recording.js"></script>
+    <script src="session.js"></script>
+</body>
+
+</html>

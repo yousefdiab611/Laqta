@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>لقطة — Laqta Creative Studio</title>
+        <link rel="stylesheet" href="studio.css" />
+    </head>
+    <body>
+        <header>
+            <img src="../assets/icons/framedshot-logo.png" alt="لقطة — Laqta" />
+            <div>
+                <h1>Creative Studio</h1>
+                <p>From screenshot to something worth sharing.</p>
+            </div>
+            <a class="brand-link" href="../brand-kit/index.html">Brand Kit ↗</a>
+        </header>
+        <main>
+            <aside>
+                <section>
+                    <h2>01 / Add your images</h2>
+                    <label
+                        >Choose screenshots<input
+                            id="files"
+                            type="file"
+                            accept="image/png,image/jpeg,image/webp"
+                            multiple
+                    /></label>
+                    <p class="hint">
+                        Use “Capture to Studio” in the extension popup while on your website, or upload images here.
+                        Images stay on this device.
+                    </p>
+                    <div id="images" aria-label="Selected images"></div>
+                </section>
+                <section>
+                    <h2>02 / Create</h2>
+                    <label
+                        >Layout<select id="mode">
+                            <option value="frame">Framed screenshot</option>
+                            <option value="steps">Numbered tutorial</option>
+                            <option value="compare">Before &amp; after</option>
+                        </select></label
+                    ><label
+                        >Template<select id="template">
+                            <option value="clean">Studio / Ivory</option>
+                            <option value="social">Social / Coral square</option>
+                            <option value="product">Product / Midnight</option>
+                            <option value="presentation">Presentation / Blue widescreen</option>
+                        </select></label
+                    ><label>Title<input id="title" maxlength="90" placeholder="Give your screenshot a title" /></label>
+                    <div id="compare-controls" hidden>
+                        <label
+                            >Comparison style<select id="compare-style">
+                                <option value="slider">Interactive slider</option>
+                                <option value="side">Side by side</option>
+                            </select></label
+                        ><label
+                            >Reveal <output id="reveal-value">50%</output
+                            ><input id="reveal" type="range" min="0" max="100" value="50"
+                        /></label>
+                        <p class="hint">
+                            First two images: Before and After. Slider exports use the current reveal position.
+                        </p>
+                    </div>
+                    <p id="mode-hint" class="hint">Select an image below to make it the main screenshot.</p>
+                </section>
+                <section>
+                    <h2>03 / Export</h2>
+                    <label
+                        >Output width (px)<input
+                            id="width"
+                            type="number"
+                            min="320"
+                            max="4096"
+                            step="1"
+                            value="1600" /></label
+                    ><label
+                        >Format<select id="format">
+                            <option value="image/png">PNG · lossless</option>
+                            <option value="image/webp">WebP · smaller file</option>
+                            <option value="image/jpeg">JPEG · widely supported</option>
+                        </select></label
+                    ><label
+                        >Quality <output id="quality-value">85%</output
+                        ><input id="quality" type="range" min="10" max="100" value="85" /></label
+                    ><label class="check"><input id="watermark" type="checkbox" checked /> Apply saved Brand Kit</label>
+                    <p class="hint">
+                        Save your logo or name in Brand Kit. Studio applies it automatically when enabled there.
+                    </p>
+                    <button id="download" class="primary" disabled>Download image</button
+                    ><output id="file-size" class="hint"></output>
+                </section>
+            </aside>
+            <div class="workspace">
+                <div class="preview-heading">
+                    <h2>Live preview</h2>
+                    <span id="dimensions">Choose an image to start</span>
+                </div>
+                <div class="preview">
+                    <canvas id="canvas" aria-label="Composed screenshot preview"></canvas>
+                    <div id="empty">
+                        <strong>Your next great screenshot starts here.</strong>
+                        <p>Add an image, pick a layout, and make it yours.</p>
+                    </div>
+                </div>
+                <p id="status" role="status" aria-live="polite"></p>
+                <section class="ocr">
+                    <div>
+                        <h2>Extract text</h2>
+                        <p class="hint">
+                            Read the selected original image. Arabic and English run locally, including offline.
+                        </p>
+                    </div>
+                    <label
+                        >Language<select id="language">
+                            <option value="eng">English</option>
+                            <option value="ara">Arabic</option>
+                            <option value="eng+ara">English + Arabic</option>
+                        </select></label
+                    ><button id="ocr" disabled>Extract text</button
+                    ><textarea
+                        id="text"
+                        rows="7"
+                        dir="auto"
+                        aria-label="Extracted text"
+                        placeholder="Extracted text appears here. Edit it before copying."
+                    ></textarea
+                    ><button id="copy" disabled>Copy text</button>
+                    <p class="hint">OCR can make mistakes. Review names and numbers before using them.</p>
+                </section>
+            </div>
+        </main>
+        <script src="vendor/tesseract.min.js"></script>
+        <script src="../src/lib/personalBrandKit.js"></script>
+        <script src="studio.js"></script>
+    </body>
+</html>
